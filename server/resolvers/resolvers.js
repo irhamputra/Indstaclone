@@ -46,7 +46,7 @@ const rootValue = {
     user: ({ id }) => {
         return userList[id]
     },
-    post: ({ user_id, post_id}) => {
+    post: ({user_id, post_id}) => {
         return postsList[user_id][post_id]
     },
     posts: ({ user_id }) => {
