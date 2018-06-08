@@ -38,7 +38,6 @@ const userList = {
 };
 
 const postsList = {
-
 };
 
 const rootValue = {
