@@ -16,7 +16,7 @@ const schema = buildSchema(`
     
     type Query {
         user(id: String): User!
-        post(user_id: String): Post!
+        post(user_id: String, post_id:String): Post!
         posts(user_id: String): [Post]
     }
 `);
