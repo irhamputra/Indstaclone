@@ -47,6 +47,7 @@ const rootValue = {
 
 app.use('/graphql', graphqlHTTP({
     schema,
+    rootValue
 }));
 
 app.listen(PORT, () => console.log(`Server is running on localhost:${PORT}`));
