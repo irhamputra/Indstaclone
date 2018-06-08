@@ -4,10 +4,17 @@
   "main": "index.js",
   "author": "Muhamad Irham Prasetyo",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^14.0.0-rc.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
   }
 }
