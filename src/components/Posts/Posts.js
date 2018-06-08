@@ -1,35 +1,46 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {Query} from 'react-apollo';
+import gql from 'graphql-tag';
+import Post from '../Post/Post';
 import './Posts.css';
+
+const PostQuery = gql`{
+  posts(user_id: "b") {
+    id
+    image
+    caption
+    user {
+      username
+      avatar
+    }
+  }
+}`;
 
 class Posts extends Component {
     constructor(props) {
         super(props);
-
     }
 
-    render(){
-        const { username, avatar, image, caption } = this.props;
-        return(
-            <article className="Post" ref="Post">
-                <header>
-                    <div className="Post-user">
-                        <div className="Post-user-avatar">
-                            <img src={ avatar } alt={ username } />
-                        </div>
-                        <div className="Post-user-nickname">
-                            <span>{ username }</span>
-                        </div>
+    render() {
+        return (
+            <Query query={PostQuery}>
+                {({data, error, loading}) => {
+                    if (loading) return <p>Loading..</p>;
+                    let posts = data.posts;
+
+                    return <div>
+                        {posts.map((post) => {
+                            return <Post
+                                username={post.user.username}
+                                avatar={post.user.avatar}
+                                image={post.image}
+                                key={post.id}
+                                caption={post.caption}
+                            />
+                        })}
                     </div>
-                </header>
-                <div className="Post-image">
-                    <div className="Post-image-bg">
-                        <img alt="Icon Living" src={ image } />
-                    </div>
-                </div>
-                <div className="Post-caption">
-                    <strong>{ username }</strong> { caption }
-                </div>
-            </article>
+                }}
+            </Query>
         )
     }
 }
