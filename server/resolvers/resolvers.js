@@ -17,7 +17,19 @@ const postsList = {
             id: 'a',
             user: userList['a'],
             caption: 'Did you see the light?',
-            image: 'https://images.unsplash.com/photo-1511851770202-fe0f706003ca?ixlib=rb-0.3.5&s=81273ad45dffeffd8af09ea75e187736&auto=format&fit=crop&w=1284&q=80'
+            image: 'https://images.unsplash.com/photo-1494257473705-09a5a19d04af?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a8630a45d2003aa0fe3d2f5ff376d9ec&auto=format&fit=crop&w=1500&q=80'
+        },
+        b: {
+            id: 'b',
+            user: userList['a'],
+            caption: 'Do you meet my sunset?',
+            image: 'https://images.unsplash.com/photo-1505388763672-ee96ba65bac8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=aa2b17198c95694b3f90d9e8681d66bc&auto=format&fit=crop&w=1500&q=80'
+        },
+        c: {
+            id: 'c',
+            user: userList['a'],
+            caption: 'Just let it be...',
+            image: 'https://images.unsplash.com/photo-1496749843252-699a989877a1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fe5da9650707e5a93c8c3cf164c2e74b&auto=format&fit=crop&w=1375&q=80'
         }
     },
     b: {
