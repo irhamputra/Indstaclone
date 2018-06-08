@@ -9,7 +9,6 @@ class Posts extends Component {
 
     render(){
         const { username, avatar, image, caption } = this.props;
-
         return(
             <article className="Post" ref="Post">
                 <header>
