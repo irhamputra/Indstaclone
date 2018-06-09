@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.7",
+    "dotenv": "^6.0.0",
     "graphql": "^14.0.0-rc.1",
     "graphql-tag": "^2.9.2",
     "pusher-js": "^4.2.2",

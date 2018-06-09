@@ -17,6 +17,18 @@ const PostQuery = gql`{
 }`;
 
 class Posts extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            posts: []
+        }
+    }
+
+    componentDidMount() {
+        this.props.apollo_client.query({})
+    }
+    
     render() {
         return (
             <Query query={PostQuery}>
