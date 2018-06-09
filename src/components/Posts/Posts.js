@@ -26,9 +26,22 @@ class Posts extends Component {
     }
 
     componentDidMount() {
-        this.props.apollo_client.query({})
+        this.props.apollo_client.query({
+            query: gql`{
+                    posts(user_id: "a") {
+                        id
+                        image
+                        caption
+                         user {
+                            username
+                            avatar
+                         }
+                        }
+                      }`
+        })
+            .then(res => this.setState({posts: res.data.posts}))
     }
-    
+
     render() {
         return (
             <Query query={PostQuery}>
