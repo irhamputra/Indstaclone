@@ -26,7 +26,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-
 app.post('/upload', multipartMiddleware, (req, res) => {
     let post = {
         user: {
