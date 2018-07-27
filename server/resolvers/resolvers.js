@@ -1,13 +1,13 @@
 const userList = {
     a: {
         id: 'a',
-        username: 'irhamputra',
-        avatar: 'https://scontent-frt3-1.cdninstagram.com/vp/627949e7665e70c73a9c51c47fdd6bf7/5BB9418D/t51.2885-19/s150x150/34124457_220895758506864_6725624653290668032_n.jpg'
+        username: 'sidresorhus',
+        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/sindresorhus/128.jpg'
     },
     b: {
         id: 'b',
-        username: 'echiartanti',
-        avatar: 'https://scontent-frx5-1.cdninstagram.com/vp/80b16cead7f4a18cec67c61ee6542719/5BB75F5C/t51.2885-19/s150x150/30087411_985427631607585_4556251055926542336_n.jpg'
+        username: 'adellecharles',
+        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/128.jpg'
     },
 };
 
