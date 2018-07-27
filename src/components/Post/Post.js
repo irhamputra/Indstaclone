@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 
 class Post extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         const {username, avatar, caption, image} = this.props;
         return (
