@@ -26,7 +26,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.post('/upload', multipartMiddleware, (req, res) => {
+app.post('/new-post', multipartMiddleware, (req, res) => {
     let post = {
         user: {
             username: req.body.name,
@@ -36,9 +36,7 @@ app.post('/upload', multipartMiddleware, (req, res) => {
         caption: req.body.caption
     };
 
-    pusher.trigger("posts-channel", "new-post", {
-        post
-    });
+    pusher.trigger("posts-channel", "new-post", {post});
 
     return res.json({status: "Post created"})
 });
