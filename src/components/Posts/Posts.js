@@ -1,20 +1,7 @@
 import React, {Component} from 'react';
-import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
 import Post from '../Post/Post';
 import './Posts.css';
-
-const PostQuery = gql`{
-  posts(user_id: "a") {
-    id
-    image
-    caption
-    user {
-      username
-      avatar
-    }
-  }
-}`;
 
 class Posts extends Component {
     constructor(props) {
@@ -26,43 +13,42 @@ class Posts extends Component {
     }
 
     componentDidMount() {
+        // querying data via props and set it to posts state
         this.props.apollo_client.query({
             query: gql`{
                     posts(user_id: "a") {
                         id
                         image
                         caption
-                         user {
+                        user {
                             username
                             avatar
                          }
                         }
                       }`
-        })
-            .then(res => this.setState({posts: res.data.posts}))
+        }).then(res => this.setState({posts: res.data.posts}));
+
+        this.posts_channel = this.props.pusher.subscribe('posts-channel');
+
+        // listening to the new post
+        this.posts_channel.bind('new-post', data => {
+            this.setState({posts: this.state.posts.concat(data.post)})
+            console.log(this.state.posts);
+        }, this)
     }
 
     render() {
         return (
-            <Query query={PostQuery}>
-                {({data, error, loading}) => {
-                    if (loading) return <p>Loading..</p>;
-                    if (error) return <p>Error fetching data...</p>
-                    let posts = data.posts;
-
-                    return <div>
-                        {posts.map((post) => {
-                            return <Post
-                                username={post.user.username}
-                                avatar={post.user.avatar}
-                                image={post.image}
-                                key={post.id}
-                                caption={post.caption}
-                            />
-                        })}
-                    </div>
-                }}
-            </Query>
+            <div className="Posts">
+                {this.state.posts.map(post =>
+                    <Post
+                        username={post.user.username}
+                        avatar={post.user.avatar}
+                        image={post.image}
+                        caption={post.caption}
+                        key={post.id}
+                    />)}
+            </div>
         )
     }
 }
